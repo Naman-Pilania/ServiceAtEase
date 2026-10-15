@@ -350,25 +350,31 @@ class MyBookingsScreen extends StatelessWidget {
 
                 // Bottom row: Date/Time and Amount
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.calendar_today_rounded,
-                          size: 14,
-                          color: AppColors.textLight,
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
-                          '$dateStr • ${booking.timeSlot}',
-                          style: const TextStyle(
-                            fontSize: 12,
-                            color: AppColors.textSecondary,
+                    Expanded(
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.calendar_today_rounded,
+                            size: 14,
+                            color: AppColors.textLight,
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 6),
+                          Expanded(
+                            child: Text(
+                              '$dateStr • ${booking.timeSlot}',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: AppColors.textSecondary,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
+                    const SizedBox(width: 10),
                     Text(
                       '₹${booking.totalAmount.toInt()}',
                       style: const TextStyle(

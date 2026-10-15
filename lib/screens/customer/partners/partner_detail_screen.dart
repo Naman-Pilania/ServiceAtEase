@@ -271,36 +271,47 @@ class _PartnerDetailScreenState extends State<PartnerDetailScreen> {
                           color: AppColors.border.withValues(alpha: 0.6)),
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Column(
-                          children: [
-                            RatingStars(
-                              rating: partner.rating,
-                              size: 15,
-                              showValue: true,
-                            ),
-                            const SizedBox(height: 2),
-                            Text(
-                              '${partner.totalReviews} reviews',
-                              style: const TextStyle(
-                                fontSize: 11,
-                                color: AppColors.textSecondary,
+                        Expanded(
+                          child: Column(
+                            children: [
+                              FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: RatingStars(
+                                  rating: partner.rating,
+                                  size: 14,
+                                  showValue: true,
+                                ),
                               ),
-                            ),
-                          ],
+                              const SizedBox(height: 2),
+                              FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  '${partner.totalReviews} reviews',
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    color: AppColors.textSecondary,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         Container(width: 1, height: 32, color: AppColors.border),
-                        _buildStatBox(
-                          '${partner.experienceYears} Years',
-                          'Experience',
-                          Icons.work_outline_rounded,
+                        Expanded(
+                          child: _buildStatBox(
+                            '${partner.experienceYears} Years',
+                            'Experience',
+                            Icons.work_outline_rounded,
+                          ),
                         ),
                         Container(width: 1, height: 32, color: AppColors.border),
-                        _buildStatBox(
-                          '${partner.completedJobs}',
-                          'Jobs Done',
-                          Icons.check_circle_outline_rounded,
+                        Expanded(
+                          child: _buildStatBox(
+                            '${partner.completedJobs}',
+                            'Jobs Done',
+                            Icons.check_circle_outline_rounded,
+                          ),
                         ),
                       ],
                     ),
@@ -612,27 +623,33 @@ class _PartnerDetailScreenState extends State<PartnerDetailScreen> {
   Widget _buildStatBox(String value, String label, IconData icon) {
     return Column(
       children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, size: 14, color: AppColors.primary),
-            const SizedBox(width: 4),
-            Text(
-              value,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: AppColors.textPrimary,
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(icon, size: 14, color: AppColors.primary),
+              const SizedBox(width: 4),
+              Text(
+                value,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textPrimary,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         const SizedBox(height: 2),
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 11,
-            color: AppColors.textSecondary,
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            label,
+            style: const TextStyle(
+              fontSize: 11,
+              color: AppColors.textSecondary,
+            ),
           ),
         ),
       ],

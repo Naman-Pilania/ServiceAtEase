@@ -358,12 +358,15 @@ class PartnerProfileScreen extends StatelessWidget {
         .take(2)
         .join();
 
-    final content = SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+    final content = SafeArea(
+      top: !isStandalone,
+      bottom: false,
+      child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
         // Profile Card
         Container(
           padding: const EdgeInsets.all(20),
@@ -660,6 +663,7 @@ class PartnerProfileScreen extends StatelessWidget {
         const SizedBox(height: 24),
       ],
       ),
+    ),
     );
 
     if (isStandalone) {

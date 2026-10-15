@@ -653,6 +653,8 @@ class _PartnerDashboardScreenState extends State<PartnerDashboardScreen> {
                     fontSize: 12,
                     color: AppColors.textSecondary,
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),

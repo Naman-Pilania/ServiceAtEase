@@ -68,65 +68,86 @@ class _PartnerBookingsScreenState extends State<PartnerBookingsScreen>
       return b.status == BookingStatus.completed || b.status == BookingStatus.cancelled;
     }).toList();
 
-    final body = Column(
-      children: [
-        // TabBar Header
-        Container(
-          color: AppColors.surface,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Container(
-            height: 44,
-            decoration: BoxDecoration(
-              color: AppColors.surfaceVariant,
-              borderRadius: BorderRadius.circular(14),
+    final body = SafeArea(
+      top: !widget.isStandalone,
+      bottom: false,
+      child: Column(
+        children: [
+          // Header title if embedded in bottom nav
+          if (!widget.isStandalone)
+            Container(
+              color: AppColors.surface,
+              width: double.infinity,
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 12, bottom: 4),
+              child: Text(
+                'Bookings',
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textPrimary,
+                ),
+              ),
             ),
-            child: TabBar(
-              controller: _tabController,
-              indicatorSize: TabBarIndicatorSize.tab,
-              dividerColor: Colors.transparent,
-              indicator: BoxDecoration(
-                color: AppColors.primary,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.primary.withValues(alpha: 0.25),
-                    blurRadius: 8,
-                    offset: const Offset(0, 2),
-                  ),
+
+          // TabBar Header
+          Container(
+            color: AppColors.surface,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Container(
+              height: 44,
+              decoration: BoxDecoration(
+                color: AppColors.surfaceVariant,
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: TabBar(
+                controller: _tabController,
+                indicatorSize: TabBarIndicatorSize.tab,
+                dividerColor: Colors.transparent,
+                labelPadding: const EdgeInsets.symmetric(horizontal: 4),
+                indicator: BoxDecoration(
+                  color: AppColors.primary,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.primary.withValues(alpha: 0.25),
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                labelColor: Colors.white,
+                unselectedLabelColor: AppColors.textSecondary,
+                labelStyle: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
+                ),
+                unselectedLabelStyle: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                ),
+                tabs: [
+                  Tab(text: 'Today (${todayBookings.length})'),
+                  Tab(text: 'Upcoming (${upcomingBookings.length})'),
+                  Tab(text: 'History (${historyBookings.length})'),
                 ],
               ),
-              labelColor: Colors.white,
-              unselectedLabelColor: AppColors.textSecondary,
-              labelStyle: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-                fontSize: 13,
-              ),
-              unselectedLabelStyle: GoogleFonts.poppins(
-                fontWeight: FontWeight.w500,
-                fontSize: 13,
-              ),
-              tabs: [
-                Tab(text: 'Today (${todayBookings.length})'),
-                Tab(text: 'Upcoming (${upcomingBookings.length})'),
-                Tab(text: 'History (${historyBookings.length})'),
+            ),
+          ),
+          const Divider(color: AppColors.border, height: 1),
+
+          // Tab Views
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                _buildBookingsList(todayBookings, 'No bookings scheduled for today'),
+                _buildBookingsList(upcomingBookings, 'No upcoming bookings at this time'),
+                _buildBookingsList(historyBookings, 'No booking history available'),
               ],
             ),
           ),
-        ),
-        const Divider(color: AppColors.border, height: 1),
-
-        // Tab Views
-        Expanded(
-          child: TabBarView(
-            controller: _tabController,
-            children: [
-              _buildBookingsList(todayBookings, 'No bookings scheduled for today'),
-              _buildBookingsList(upcomingBookings, 'No upcoming bookings at this time'),
-              _buildBookingsList(historyBookings, 'No booking history available'),
-            ],
-          ),
-        ),
-      ],
+        ],
+      ),
     );
 
     if (widget.isStandalone) {
@@ -278,15 +299,19 @@ class _PartnerBookingsScreenState extends State<PartnerBookingsScreen>
                 color: AppColors.primary,
               ),
               const SizedBox(width: 6),
-              Text(
-                booking.timeSlot,
-                style: GoogleFonts.poppins(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.textPrimary,
+              Expanded(
+                child: Text(
+                  booking.timeSlot,
+                  style: GoogleFonts.poppins(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.textPrimary,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
               Text(
                 '₹${booking.totalAmount.toStringAsFixed(0)}',
                 style: GoogleFonts.poppins(

@@ -495,19 +495,15 @@ class ServiceCategoryScreen extends StatelessWidget {
                           const Icon(Icons.near_me_outlined,
                               size: 13, color: AppColors.textLight),
                           const SizedBox(width: 3),
-                          Text(
-                            '${partner.distanceKm} km away',
-                            style: const TextStyle(
-                              fontSize: 12,
-                              color: AppColors.textSecondary,
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            '•  ${partner.experienceYears} yrs exp',
-                            style: const TextStyle(
-                              fontSize: 12,
-                              color: AppColors.textLight,
+                          Expanded(
+                            child: Text(
+                              '${partner.distanceKm} km away • ${partner.experienceYears} yrs exp',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: AppColors.textSecondary,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ],
