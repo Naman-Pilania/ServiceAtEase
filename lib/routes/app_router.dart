@@ -31,10 +31,7 @@ class AppRouter {
     initialLocation: '/',
     routes: [
       // Splash & Auth routes
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const SplashScreen(),
-      ),
+      GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
       GoRoute(
         path: '/onboarding',
         builder: (context, state) => const OnboardingScreen(),
@@ -43,14 +40,8 @@ class AppRouter {
         path: '/role-selection',
         builder: (context, state) => const RoleSelectionScreen(),
       ),
-      GoRoute(
-        path: '/login',
-        builder: (context, state) => const LoginScreen(),
-      ),
-      GoRoute(
-        path: '/otp',
-        builder: (context, state) => const OtpScreen(),
-      ),
+      GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
+      GoRoute(path: '/otp', builder: (context, state) => const OtpScreen()),
 
       // Customer routes
       GoRoute(
@@ -96,7 +87,9 @@ class AppRouter {
       GoRoute(
         path: '/customer/booking/confirmation',
         builder: (context, state) {
-          final booking = state.extra is BookingModel ? state.extra as BookingModel : null;
+          final booking = state.extra is BookingModel
+              ? state.extra as BookingModel
+              : null;
           return BookingConfirmationScreen(booking: booking);
         },
       ),
@@ -123,15 +116,18 @@ class AppRouter {
       ),
       GoRoute(
         path: '/partner/bookings',
-        builder: (context, state) => const PartnerBookingsScreen(isStandalone: true),
+        builder: (context, state) =>
+            const PartnerBookingsScreen(isStandalone: true),
       ),
       GoRoute(
         path: '/partner/earnings',
-        builder: (context, state) => const PartnerEarningsScreen(isStandalone: true),
+        builder: (context, state) =>
+            const PartnerEarningsScreen(isStandalone: true),
       ),
       GoRoute(
         path: '/partner/profile',
-        builder: (context, state) => const PartnerProfileScreen(isStandalone: true),
+        builder: (context, state) =>
+            const PartnerProfileScreen(isStandalone: true),
       ),
       GoRoute(
         path: '/partner/services',
@@ -146,10 +142,7 @@ class AppRouter {
         builder: (context, state) => const NotificationsScreen(),
       ),
     ],
-    errorBuilder: (context, state) => Scaffold(
-      body: Center(
-        child: Text('Page not found: ${state.uri}'),
-      ),
-    ),
+    errorBuilder: (context, state) =>
+        Scaffold(body: Center(child: Text('Page not found: ${state.uri}'))),
   );
 }

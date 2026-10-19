@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import '../../providers/auth_provider.dart';
 import '../../theme/app_colors.dart';
 import '../../widgets/common/gradient_button.dart';
@@ -51,7 +52,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
 
               // Title
               Text(
-                'How would you like to use UrbanGo?',
+                'How would you like to use serviceAtEase?',
                 style: GoogleFonts.poppins(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
@@ -86,8 +87,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                       icon: Icons.shopping_bag_outlined,
                       roleLabel: 'Customer',
                       title: 'I need a service',
-                      description:
-                          'Book verified professionals for salon, plumbing, cleaning, repairs & more at your doorstep.',
+                      description: 'Book verified professionals for salon, plumbing, cleaning, repairs & more at your doorstep.',
                       isSelected: !_isPartner,
                       onTap: () {
                         setState(() {
@@ -104,8 +104,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                       icon: Icons.handyman_outlined,
                       roleLabel: 'Service Partner',
                       title: "I'm a service provider",
-                      description:
-                          'Get direct bookings in real-time, grow your client base, manage schedules, and maximize earnings.',
+                      description: 'Get direct bookings in real-time, grow your client base, manage schedules, and maximize earnings.',
                       isSelected: _isPartner,
                       onTap: () {
                         setState(() {
@@ -216,9 +215,13 @@ class _RoleCard extends StatelessWidget {
                       height: 26,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: isSelected ? AppColors.primary : Colors.transparent,
+                        color: isSelected
+                            ? AppColors.primary
+                            : Colors.transparent,
                         border: Border.all(
-                          color: isSelected ? AppColors.primary : AppColors.border,
+                          color: isSelected
+                              ? AppColors.primary
+                              : AppColors.border,
                           width: 2,
                         ),
                       ),
@@ -240,10 +243,7 @@ class _RoleCard extends StatelessWidget {
                 // Emoji and Title
                 Row(
                   children: [
-                    Text(
-                      emoji,
-                      style: const TextStyle(fontSize: 20),
-                    ),
+                    Text(emoji, style: const TextStyle(fontSize: 20)),
                     const SizedBox(width: 8),
                     Expanded(
                       child: Text(

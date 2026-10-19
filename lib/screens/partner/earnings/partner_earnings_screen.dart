@@ -347,7 +347,7 @@ class PartnerEarningsScreen extends StatelessWidget {
         const SizedBox(height: 10),
         _buildTransactionItem(
           serviceName: 'Weekly Platform Bonus',
-          customer: 'UrbanGo Rewards',
+          customer: 'serviceAtEase Rewards',
           date: '10 Oct, 09:00 AM',
           amount: 500.0,
           status: BookingStatus.completed,

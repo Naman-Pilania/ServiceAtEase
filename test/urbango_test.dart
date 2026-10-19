@@ -7,7 +7,7 @@ import 'package:project_name/providers/home_provider.dart';
 import 'package:project_name/providers/partner_dashboard_provider.dart';
 
 void main() {
-  group('UrbanGo Provider & Logic Tests', () {
+  group('serviceAtEase Provider & Logic Tests', () {
     test('AuthProvider state transitions', () {
       final auth = AuthProvider();
       expect(auth.state, AuthState.initial);

@@ -181,3 +181,6 @@ class _UrbanGoLogoState extends State<UrbanGoLogo>
     );
   }
 }
+
+/// Alias for ServiceAtEase
+typedef ServiceAtEaseLogo = UrbanGoLogo;

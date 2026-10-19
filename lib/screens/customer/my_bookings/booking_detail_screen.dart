@@ -956,7 +956,7 @@ class BookingDetailScreen extends StatelessWidget {
                 SizedBox(width: 6),
                 Expanded(
                   child: Text(
-                    'Payment Verified • Online via UrbanGo Pay',
+                    'Payment Verified • Online via serviceAtEase Pay',
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.w500,

@@ -1,11 +1,11 @@
 {
-    "name": "UrbanGo - Instant Services",
-    "short_name": "UrbanGo",
+    "name": "serviceAtEase - Instant Services",
+    "short_name": "serviceAtEase",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#6C63FF",
     "theme_color": "#6C63FF",
-    "description": "Instant Services. Right Now. On-demand service booking.",
+    "description": "Instant Services. At Your Ease. On-demand service booking.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

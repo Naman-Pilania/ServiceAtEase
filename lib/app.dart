@@ -8,8 +8,8 @@ import 'providers/partner_dashboard_provider.dart';
 import 'routes/app_router.dart';
 import 'theme/app_theme.dart';
 
-class UrbanGoApp extends StatelessWidget {
-  const UrbanGoApp({super.key});
+class ServiceAtEaseApp extends StatelessWidget {
+  const ServiceAtEaseApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class UrbanGoApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => PartnerDashboardProvider()),
       ],
       child: MaterialApp.router(
-        title: 'UrbanGo',
+        title: 'serviceAtEase',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
         routerConfig: AppRouter.router,
@@ -30,5 +30,6 @@ class UrbanGoApp extends StatelessWidget {
   }
 }
 
-/// Backwards compatibility alias
-typedef ServiGoApp = UrbanGoApp;
+/// Backwards compatibility aliases
+typedef UrbanGoApp = ServiceAtEaseApp;
+typedef ServiGoApp = ServiceAtEaseApp;

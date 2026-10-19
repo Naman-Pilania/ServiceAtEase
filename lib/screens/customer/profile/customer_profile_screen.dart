@@ -35,7 +35,7 @@ class CustomerProfileScreen extends StatelessWidget {
           ],
         ),
         content: const Text(
-          'Are you sure you want to log out of UrbanGo?',
+          'Are you sure you want to log out of serviceAtEase?',
           style: TextStyle(color: AppColors.textSecondary),
         ),
         actions: [
@@ -323,7 +323,7 @@ class CustomerProfileScreen extends StatelessWidget {
                     onTap: () => _showInfoSheet(
                       context,
                       'Terms & Conditions',
-                      'Welcome to UrbanGo! By using this service platform, you agree to our standard terms of use, service fulfillment guidelines, and cancellation policies.',
+                      'Welcome to serviceAtEase! By using this service platform, you agree to our standard terms of use, service fulfillment guidelines, and cancellation policies.',
                     ),
                   ),
                   const Divider(height: 1, color: AppColors.divider),
@@ -334,7 +334,7 @@ class CustomerProfileScreen extends StatelessWidget {
                     onTap: () => _showInfoSheet(
                       context,
                       'Privacy Policy',
-                      'UrbanGo respects your privacy. We collect phone and address details strictly for service fulfillment and security verification.',
+                      'serviceAtEase respects your privacy. We collect phone and address details strictly for service fulfillment and security verification.',
                     ),
                   ),
                   const Divider(height: 1, color: AppColors.divider),
@@ -346,7 +346,7 @@ class CustomerProfileScreen extends StatelessWidget {
                     onTap: () {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                          content: Text('Thank you for loving UrbanGo! ⭐⭐⭐⭐⭐'),
+                          content: Text('Thank you for loving serviceAtEase! ⭐⭐⭐⭐⭐'),
                           duration: Duration(seconds: 2),
                         ),
                       );
@@ -357,11 +357,11 @@ class CustomerProfileScreen extends StatelessWidget {
                     icon: Icons.info_outline_rounded,
                     iconColor: AppColors.textSecondary,
                     title: 'About',
-                    subtitle: 'UrbanGo On-Demand Services',
+                    subtitle: 'serviceAtEase On-Demand Services',
                     onTap: () => _showInfoSheet(
                       context,
-                      'About UrbanGo',
-                      'UrbanGo connects you with trusted, background-verified professionals for home services, personal wellness, and repair work.',
+                      'About serviceAtEase',
+                      'serviceAtEase connects you with trusted, background-verified professionals for home services, personal wellness, and repair work.',
                     ),
                   ),
                 ],

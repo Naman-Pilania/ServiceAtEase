@@ -7,8 +7,8 @@ void main() {
     SharedPreferences.setMockInitialValues({});
   });
 
-  testWidgets('UrbanGo smoke test loads SplashScreen', (WidgetTester tester) async {
-    await tester.pumpWidget(const UrbanGoApp());
-    expect(find.text('UrbanGo'), findsOneWidget);
+  testWidgets('serviceAtEase smoke test loads SplashScreen', (WidgetTester tester) async {
+    await tester.pumpWidget(const ServiceAtEaseApp());
+    expect(find.text('serviceAtEase'), findsOneWidget);
   });
 }

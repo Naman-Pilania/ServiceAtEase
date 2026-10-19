@@ -1,8 +1,8 @@
 class AppConstants {
   AppConstants._();
 
-  static const String appName = 'UrbanGo';
-  static const String appTagline = 'Instant Services. Right Now.';
+  static const String appName = 'serviceAtEase';
+  static const String appTagline = 'Instant Services. At Your Ease.';
 
   // Animation durations
   static const Duration quickAnimation = Duration(milliseconds: 200);
